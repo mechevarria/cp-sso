@@ -14,7 +14,7 @@
             </p>
             <div class="input-group mb-4">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
+                    <span class="input-group-text"><i class="cil-user"></i></span>
                 </div>
                 <input type="text" id="username" name="username" class="${properties.kcInputClass!}" autofocus/>
             </div>

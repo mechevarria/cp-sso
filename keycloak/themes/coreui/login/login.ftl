@@ -10,7 +10,7 @@
             <form id="kc-form-login" class="${properties.kcFormClass!}" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="icon-user"></i> </span>
+                    <span class="input-group-text"> <i class="cil-user"></i> </span>
                   </div>
                     <#if usernameEditDisabled??>
                         <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled placeholder="Username"/>
@@ -21,7 +21,7 @@
 
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="icon-lock"></i> </span>
+                    <span class="input-group-text"> <i class="cil-lock-locked"></i> </span>
                   </div>
                   <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off" placeholder="Password"/>
                 </div>

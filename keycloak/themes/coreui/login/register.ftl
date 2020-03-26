@@ -10,7 +10,7 @@
 
             <div class="input-group mb-3 ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="icon-user"></i> </span>
+                    <span class="input-group-text"> <i class="cil-user"></i> </span>
                 </div>
                 <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" placeholder="${msg("firstName")}" />
             </div>
@@ -19,7 +19,7 @@
 
             <div class="input-group mb-3 ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="icon-people"></i> </span>
+                    <span class="input-group-text"> <i class="cil-people"></i> </span>
                 </div>
                 <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="${(register.formData.lastName!'')}" placeholder="${msg("lastName")}" />
             </div>
@@ -34,7 +34,7 @@
           <#if !realm.registrationEmailAsUsername>
             <div class="input-group mb-3 ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="icon-user"></i> </span>
+                    <span class="input-group-text"> <i class="cil-user"></i> </span>
                 </div>
                 <input type="text" id="username" class="${properties.kcInputClass!}" name="username" value="${(register.formData.username!'')}" autocomplete="username" placeholder="${msg("username")}" />
             </div>
@@ -43,14 +43,14 @@
             <#if passwordRequired>
             <div class="input-group mb-3 ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="icon-lock"></i> </span>
+                    <span class="input-group-text"> <i class="cil-lock-locked"></i> </span>
                 </div>
                 <input type="password" id="password" class="${properties.kcInputClass!}" name="password" autocomplete="new-password" placeholder="${msg("password")}"/>
             </div>
 
             <div class="input-group mb-3 ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="icon-lock"></i> </span>
+                    <span class="input-group-text"> <i class="cil-lock-locked"></i> </span>
                 </div>
                 <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" placeholder="${msg("passwordConfirm")}" />
             </div>

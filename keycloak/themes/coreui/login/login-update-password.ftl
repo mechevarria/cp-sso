@@ -12,13 +12,13 @@
 
             <div class="input-group mb-4">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="icon-lock"></i> </span>
+                    <span class="input-group-text"> <i class="cil-lock-locked "></i> </span>
                 </div>
                 <input id="password-new" class="${properties.kcInputClass!}" name="password-new" type="password" autocomplete="password-new" autofocus placeholder="New Password"/>
             </div>
             <div class="input-group mb-4">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="icon-lock"></i> </span>
+                    <span class="input-group-text"> <i class="cil-lock-locked "></i> </span>
                 </div>
                 <input type="password" id="password-confirm" name="password-confirm" class="${properties.kcInputClass!}" autocomplete="new-password" placeholder="Confirm Password"/>
             </div>
