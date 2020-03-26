@@ -1,0 +1,4 @@
+# docker cp for development only. Do not commit
+keycloak/themes/base
+keycloak/themes/keycloak
+keycloak/themes/keycloak-preview
