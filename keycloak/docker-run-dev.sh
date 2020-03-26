@@ -8,4 +8,5 @@ docker run \
     -e DB_DATABASE=postgres \
     -e DB_PASSWORD=$PG_PASSWORD \
     -e DB_ADDR=$PG_ADDR \
-    jboss/keycloak
+    --mount type=bind,source=${PWD}/themes,target=/opt/jboss/keycloak/themes \
+    quay.io/mechevarria/dev-keycloak-coreui
