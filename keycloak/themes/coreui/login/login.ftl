@@ -38,16 +38,15 @@
                 </div>
 
                 <div class="${properties.kcFormGroupClass!}">
-                    <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
+                    <div id="kc-form-options" class="col-form-label">
                         <#if realm.rememberMe && !usernameEditDisabled??>
-                            <div class="checkbox">
-                                <label>
-                                    <#if login.rememberMe??>
-                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" tabindex="5" checked> ${msg("rememberMe")}
-                                    <#else>
-                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" tabindex="5"> ${msg("rememberMe")}
-                                    </#if>
-                                </label>
+                            <div class="form-check form-check-inline mr-1">
+                                <#if login.rememberMe??>
+                                    <input tabindex="3" id="rememberMe" class="form-check-input" name="rememberMe" type="checkbox" tabindex="5" checked>
+                                <#else>
+                                    <input tabindex="3" id="rememberMe" class="form-check-input" name="rememberMe" type="checkbox" tabindex="5">
+                                </#if>
+                                <label class="form-check-label">${msg("rememberMe")}</label>
                             </div>
                         </#if>
                         <div class="${properties.kcFormOptionsWrapperClass!}">
