@@ -28,6 +28,7 @@
             </div>
         </form>
     <#elseif section = "info" >
+        <div class="dropdown-divider"></div>
         ${msg("emailInstruction")}
     </#if>
 </@layout.registrationLayout>
