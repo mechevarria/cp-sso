@@ -1,0 +1,22 @@
+<div class="card-deck">
+  <div class="card">
+    <div class="card-header">Donut Chart</div>
+    <div class="card-body">
+      <h4 class="card-title">Sales statistics</h4>
+      <p class="card-text">
+        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [colors]="colors">
+        </canvas>
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">Bar Chart</div>
+    <div class="card-body">
+      <h4 class="card-title">Light card title</h4>
+      <p class="card-text">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" [colors]="colors">
+        </canvas>
+      </p>
+    </div>
+  </div>
+</div>

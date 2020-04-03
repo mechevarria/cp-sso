@@ -1,0 +1,27 @@
+<div class="card-deck">
+  <div class="card">
+    <div class="card-header">Form</div>
+    <form class="card-text" (ngSubmit)="submit()" #userForm="ngForm">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input id="firstName" name="firstName" type="text" class="form-control" [(ngModel)]="model.firstName">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" name="lastName" type="text" class="form-control" [(ngModel)]="model.lastName">
+        </div>
+        <div class="form-group">
+          <label for="group">Group</label>
+          <input id="group" name="group" type="text" class="form-control" [(ngModel)]="model.group">
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-sm btn-primary mr-1" [disabled]="isBusy">
+          <span class="spinner-border spinner-border-sm" *ngIf="isBusy"></span> Save
+        </button>
+        <button type="button" class="btn btn-sm btn-danger" (click)="clear()" [disabled]="isBusy">Clear</button>
+      </div>
+    </form>
+  </div>
+</div>
