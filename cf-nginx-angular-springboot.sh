@@ -1,20 +1,18 @@
 #!/usr/bin/env bash
 
-keycloak_url=$(cf apps | awk '{print $6}' | grep keycloak)
-if [[ -z "$keycloak_url" ]]; then
-  echo "Could not find Keycloak application. Exiting"
+status=$(cf app keycloak-coreui | sed -n 3p)
+if [[ $status = "FAILED" ]]; then
   exit 1
 else
-  keycloak_url=https://$(cf apps | awk '{print $6}' | grep keycloak)/auth
+  keycloak_url=https://$(cf app keycloak-coreui | awk '{print $2}' | sed -n 5p)/auth
   echo keycloak_url=$keycloak_url
 fi
 
-springboot_url=$(cf apps | awk '{print $6}' | grep springboot)
-if [[ -z "$springboot_url" ]]; then
-  echo "Could not find Springboot application. Exiting"
+status=$(cf app springboot-api | sed -n 3p)
+if [[ $status = "FAILED" ]]; then
   exit 1
 else
-  springboot_url=https://$(cf apps | awk '{print $6}' | grep springboot)/
+  springboot_url=https://$(cf app springboot-api | awk '{print $2}' | sed -n 5p)/
   echo springboot_url=$springboot_url
 fi
 
