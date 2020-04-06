@@ -42,3 +42,10 @@ cd keycloak
 ./docker-run-dev.sh
 ```
 * Changes made locally to `keycloak/themes` will be seen when you refresh server pages in your browser.
+
+## Springboot Container
+
+* Development tools are already integrated. To run use
+```bash
+mvn spring-boot:run
+```
