@@ -24,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { KeycloakAngularModule, KeycloakService, KeycloakOptions } from 'keycloak-angular';
+import { SpringbootComponent } from './springboot/springboot.component';
 
 const keycloakService = new KeycloakService();
 
@@ -37,7 +38,8 @@ const keycloakService = new KeycloakService();
     ChartsComponent,
     FormComponent,
     SidebarComponent,
-    AppMapComponent
+    AppMapComponent,
+    SpringbootComponent
   ],
   imports: [
     BrowserModule,

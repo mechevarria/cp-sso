@@ -1,9 +1,10 @@
-import {Routes} from '@angular/router';
-import {HomeComponent} from './home/home.component';
-import {TableComponent} from './table/table.component';
-import {ChartsComponent} from './charts/charts.component';
-import {FormComponent} from './form/form.component';
+import { Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { TableComponent } from './table/table.component';
+import { ChartsComponent } from './charts/charts.component';
+import { FormComponent } from './form/form.component';
 import { AppMapComponent } from './app-map/app-map.component';
+import { SpringbootComponent } from './springboot/springboot.component';
 
 export const AppRoutes: Routes = [
   {
@@ -39,6 +40,13 @@ export const AppRoutes: Routes = [
         component: AppMapComponent,
         data: {
           breadcrumb: 'Map'
+        }
+      },
+      {
+        path: 'springboot',
+        component: SpringbootComponent,
+        data: {
+          breadcrumb: 'Spring Boot'
         }
       }
     ]
