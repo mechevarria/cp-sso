@@ -10,4 +10,5 @@ docker run \
     --network app-net \
     -p 8080:8080 \
     --env KEYCLOAK=$KEYCLOAK \
+    --env KEYCLOAK_URL=$KEYCLOAK_URL \
     quay.io/mechevarria/springboot-api
