@@ -9,17 +9,25 @@ import { MessageService } from '../message/message.service';
 })
 export class SpringbootComponent implements OnInit {
   response: any = {};
+  name: string = '';
+  isBusy: boolean = false;
 
   constructor(private springbootService: SpringbootService, private messageService: MessageService) { }
 
   checkSpringboot(): void {
-    this.springbootService.getStatus().subscribe(res => {
+    this.isBusy = true;
+    this.springbootService.getStatus(this.name).subscribe(res => {
+      this.isBusy = false;
       this.response = res;
 
       if (this.response.status === 200) {
         this.messageService.success('Successfully checked springboot-api status');
       }
     });
+  }
+
+  clear(): void {
+    this.name = '';
   }
 
   ngOnInit(): void {

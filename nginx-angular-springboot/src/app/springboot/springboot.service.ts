@@ -11,8 +11,14 @@ export class SpringbootService {
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
-  getStatus(): Observable<any> {
-    return this.http.get<any>('/springboot-api/', { observe: 'response' })
+  getStatus(name: string): Observable<any> {
+    const options: any = {
+      observe: 'response',
+      params: {
+        name: name
+      }
+    }
+    return this.http.get<any>('/springboot-api/', options)
       .pipe(
         catchError(error => {
           this.messageService.error(`getSpring() ${error.message}`);

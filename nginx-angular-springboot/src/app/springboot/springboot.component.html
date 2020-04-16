@@ -1,14 +1,20 @@
 <div class="card-deck mb-3">
   <div class="card">
-    <div class="card-header">Spring Boot Status</div>
-    <div class="card-body">
-      <div class="card-text">
-        <p>Is the springboot-api up?</p>
-        <button class="btn btn-lg btn-primary" (click)="checkSpringboot()">
-          <i class="cil-reload"></i> Springboot
-        </button>
+    <div class="card-header">Check the Spring Boot REST api</div>
+    <form class="card-text" (ngSubmit)="checkSpringboot()" #userForm="ngForm">
+      <div class="card-body">
+        <div class="form-group">
+          <label>Name</label>
+          <input name="name" type="text" class="form-control" [(ngModel)]="name">
+        </div>
       </div>
-    </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-sm btn-primary mr-1" [disabled]="isBusy">
+          <span class="spinner-border spinner-border-sm" *ngIf="isBusy"></span> Submit
+        </button>
+        <button type="button" class="btn btn-sm btn-danger" (click)="clear()" [disabled]="isBusy">Clear</button>
+      </div>
+    </form>
   </div>
 </div>
 
