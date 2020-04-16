@@ -14,7 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { ChartsComponent } from './charts/charts.component';
 import { ChartsModule } from 'ng2-charts';
-import { FormComponent } from './form/form.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AppMapComponent } from './app-map/app-map.component';
@@ -36,7 +35,6 @@ const keycloakService = new KeycloakService();
     HeaderComponent,
     BreadcrumbComponent,
     ChartsComponent,
-    FormComponent,
     SidebarComponent,
     AppMapComponent,
     SpringbootComponent
