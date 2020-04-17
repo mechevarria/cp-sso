@@ -5,7 +5,7 @@
     <#elseif section = "form">
         <h1>Register</h1>
         <p class="text-muted">Create your account</p>
-        <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post">
+        <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post" autocomplete="off">
 
 
             <div class="input-group mb-3 ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
