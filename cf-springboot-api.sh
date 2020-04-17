@@ -17,6 +17,6 @@ cf push $app \
     --no-start
 
 cf se $app KEYCLOAK_URL $keycloak_url
-cf se $app KEYCLOAK true
+cf se $app KEYCLOAK false
 
 cf start $app

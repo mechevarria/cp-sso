@@ -27,6 +27,6 @@ cf push $app \
 cf se $app MAPBOX_TOKEN $MAPBOX_TOKEN
 cf se $app KEYCLOAK_URL $keycloak_url
 cf se $app SPRINGBOOT_URL $springboot_url
-cf se $app KEYCLOAK true
+cf se $app KEYCLOAK false
 
 cf start $app
