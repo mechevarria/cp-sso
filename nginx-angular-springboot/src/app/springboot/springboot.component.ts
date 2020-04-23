@@ -28,6 +28,7 @@ export class SpringbootComponent implements OnInit {
 
   clear(): void {
     this.name = '';
+    this.response = {};
   }
 
   ngOnInit(): void {
