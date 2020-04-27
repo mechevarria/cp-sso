@@ -4,7 +4,7 @@ version: 0.0.1
 modules:
   - name: cp-hana
     type: hdb
-    path: hana
+    path: db
     requires:
       - name: hdi_hana
     parameters:
@@ -13,6 +13,7 @@ modules:
 resources:
   - name: hdi_hana
     parameters:
+      service: hana
       config:
         schema: hana
     properties:
