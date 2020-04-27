@@ -1,3 +1,4 @@
+*.mtar
 dist
 node_modules
 

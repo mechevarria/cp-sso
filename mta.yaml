@@ -1,0 +1,20 @@
+ID: cp-hana
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: cp-hana
+    type: hdb
+    path: hana
+    requires:
+      - name: hdi_hana
+    parameters:
+      disk-quota: 1024M
+      memory: 1024M
+resources:
+  - name: hdi_hana
+    parameters:
+      config:
+        schema: hana
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container

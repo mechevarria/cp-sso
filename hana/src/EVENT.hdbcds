@@ -1,0 +1,21 @@
+entity EVENT {
+    key EVENT_ID     : hana.VARCHAR(40);
+        EVENT_DATE   : LocalDate        not null;
+        EVENT_TYPE   : hana.VARCHAR(50) not null;
+        ACTOR_1      : String(200)      not null;
+        ACTOR_2      : String(200);
+        COUNTRY_NAME : String(100);
+        GEO_LOCATION : hana.ST_POINT;
+        NOTES        : LargeString;
+        FATALITIES   : Integer;
+}
+technical configuration {
+    // Search 'Full-Text Index Parameters' on help.sap.com
+    fulltext index fti_notes on (NOTES)
+        fast preprocess off
+        async
+        language detection('en')
+        fuzzy search index on
+        configuration 'PUBLIC_SECTOR_EVENT'
+        text analysis on;
+};
