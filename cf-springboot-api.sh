@@ -8,7 +8,8 @@ else
   echo keycloak_url=$keycloak_url
 fi
 
-status=$(cf service hdi-hana | sed -n 3p)
+service=hdi_hana
+status=$(cf service $service | sed -n 3p)
 if [[ $status = "FAILED" ]]; then
   exit 1
 fi
@@ -25,6 +26,6 @@ cf se $app KEYCLOAK_URL $keycloak_url
 cf se $app KEYCLOAK false
 
 # bind hana service
-cf bind-service $app hdi-hana
+cf bind-service $app $service
 
 cf start $app

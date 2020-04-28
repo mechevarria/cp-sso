@@ -6,12 +6,12 @@ modules:
   type: com.sap.xs.hdi
   path: db
   requires:
-  - name: hdi-hana
+  - name: hdi_hana
   parameters:
     disk-quota: 1024M
     memory: 256M
 resources:
-- name: hdi-hana
+- name: hdi_hana
   type: com.sap.xs.hdi-container
   parameters:
     config:
