@@ -8,6 +8,11 @@ else
   echo keycloak_url=$keycloak_url
 fi
 
+status=$(cf service hdi-hana | sed -n 3p)
+if [[ $status = "FAILED" ]]; then
+  exit 1
+fi
+
 app=springboot-api
 
 cf push $app \
@@ -18,5 +23,8 @@ cf push $app \
 
 cf se $app KEYCLOAK_URL $keycloak_url
 cf se $app KEYCLOAK false
+
+# bind hana service
+cf bind-service $app hdi-hana
 
 cf start $app
