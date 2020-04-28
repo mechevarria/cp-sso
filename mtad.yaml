@@ -1,8 +1,8 @@
 _schema-version: "3.1"
-ID: cp-hana
+ID: cp-sso
 version: 0.0.1
 modules:
-- name: cp-hana
+- name: hdi-hana-deployer
   type: com.sap.xs.hdi
   path: db
   requires:
