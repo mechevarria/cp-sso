@@ -1,5 +1,3 @@
-temp.json
-
 *.mtar
 dist
 node_modules
