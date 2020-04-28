@@ -1,22 +1,20 @@
 #!/usr/bin/env bash
-
 hasJq=$(which jq)
-
 if [[ -z "$hasJq" ]]; then
-  echo "please install jq: 'sudo apt-get install -y jq'"
+  echo "install jq: 'sudo apt-get install -y jq'"
   exit 1
 fi
 
+credentials=$(cf service-key hdi_hana hdi-hana-key | sed -n 3,14p)
+if [[ -z "$credentials" ]]; then
+  echo "service-key 'hdi-hana-key' not found"
+  exit 1
+fi
 
-export KEYCLOAK=false
+export VCAP_SERVICES_HDI_HANA_CREDENTIALS_URL=$(echo $credentials | jq -r .url)
+export VCAP_SERVICES_HDI_HANA_CREDENTIALS_USER=$(echo $credentials | jq -r .user)
+export VCAP_SERVICES_HDI_HANA_CREDENTIALS_PASSWORD=$(echo $credentials | jq -r .password)
+
 export KEYCLOAK_URL=$KEYCLOAK_URL
-
-cf service-key hdi-hana hdi-hana-key | sed -n 3,14p > temp.json
-
-export VCAP_SERVICES_HDI-HANA_CREDENTIALS_HOST=$(jq .host temp.json)
-export VCAP_SERVICES_HDI-HANA_CREDENTIALS_USER=$(jq .user temp.json)
-export VCAP_SERVICES_HDI-HANA_CREDENTIALS_PASSWORD=$(jq .password temp.json)
-
-rm temp.json
 
 mvn spring-boot:run
