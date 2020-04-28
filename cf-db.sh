@@ -10,4 +10,4 @@ cf deploy ./ -f
 
 cf create-service-key hdi-hana hdi-hana-key
 
-rm cp-hana.mtar
+rm cp-sso.mtar
