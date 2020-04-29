@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../message/message.service';
 import { Color } from 'ng2-charts'
+import { ChartsService } from './charts.service';
 
 @Component({
   selector: 'app-charts',
@@ -8,32 +9,33 @@ import { Color } from 'ng2-charts'
 })
 export class ChartsComponent implements OnInit {
   // colors pulled from https://coreui.io/demo/3.0.0/#colors.html
-  colors: Color[] = [{ backgroundColor: ['#321fdb', '#f9b115', '#e55353', '#3399ff', '#2eb85c', '#636f83', '#ced2d8'] }];
+  colors: Color[] = [{ backgroundColor: ['#321fdb', '#f9b115', '#e55353', '#3399ff', '#2eb85c', '#636f83', '#ced2d8', '#321fdb', '#f9b115', '#e55353', '#3399ff', '#2eb85c', '#636f83', '#ced2d8'] }];
 
-  doughnutChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  doughnutChartData: number[] = [];
-  doughnutChartType = 'doughnut';
+  donutLabels: string[] = [];
+  donutData: number[] = [];
+  donutType = 'doughnut';
 
-  barChartOptions: any = {
+  barOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  barChartLabels: string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-  barChartType = 'bar';
-  barChartLegend = true;
-  barChartData: any[] = [{}];
+  barLabels: string[] = [];
+  barType = 'bar';
+  barLegend = false;
+  barData: any[] = [{}];
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private chartsService: ChartsService) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.barChartData = [
-        { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
-      ];
-      this.doughnutChartData = [350, 450, 100];
-      this.messageService.success('Successfully loaded charts view');
-    }, 500);
+    this.chartsService.getData().subscribe(res => {
+      if (res !== null) {
+        this.donutLabels = res.donutLabels;
+        this.donutData = res.donutData;
+        this.barLabels = res.barLabels;
+        this.barData = res.barData;
 
+        this.messageService.success('Got chart data from Spring Boot');
+      }
+    });
   }
 }
