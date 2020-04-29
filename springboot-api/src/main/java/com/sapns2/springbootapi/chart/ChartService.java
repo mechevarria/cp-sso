@@ -35,7 +35,9 @@ public class ChartService {
         List<String> barLabels = new ArrayList<>();
         List<Object> barData = new ArrayList<>();
         List<Long> data = new ArrayList<>();
-        barData.add(data);
+        HashMap<String, List<Long>> dataMap = new HashMap<>();
+        dataMap.put("data", data);
+        barData.add(dataMap);
 
         for (Map<String, Object> row : rows) {
             barLabels.add((String) row.get("COUNTRY_NAME"));
