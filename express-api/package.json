@@ -1,5 +1,5 @@
 {
-  "name": "cp-express",
+  "name": "express-api",
   "version": "0.2.0",
   "description": "RESTful Express API for SAP Cloud Platform and HANA",
   "author": "Mike Echevarria <mike.echevarria@gmail.com>",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@sap/hdbext": "^6.2.2",
+    "@sap/xsenv": "^2.2.0",
     "compression": "^1.7.4",
     "cors": "^2.7.1",
     "express": "^4.13.3",

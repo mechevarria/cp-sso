@@ -1,7 +1,6 @@
 'use strict';
 
 const express = require('express');
-const hdbext = require('@sap/hdbext');
 const router = express.Router();
 
 router.get('/', function (req, res) {
@@ -9,17 +8,16 @@ router.get('/', function (req, res) {
 	SELECT DISTINCT TA_TYPE as "taType"
 	FROM "$TA_EVENT.fti_notes";
   `;
-  
-  hdbext.createConnection(req.dbConfig, (err, client) => {
-    if (err) {
-      res.status(500).json({ error: `[types]: ${err.message}` });
-    }
+  try {
     const results = [];
-    client.exec(typesQuery).forEach(result => {
+    req.db.exec(typesQuery).forEach(result => {
       results.push(result.taType);
     });
     res.json(results);
-  });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: `[types]: ${err.message}` });
+  }
 });
 
 module.exports = router;

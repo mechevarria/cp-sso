@@ -11,10 +11,7 @@ if [[ -z "$credentials" ]]; then
   exit 1
 fi
 
-export VCAP_SERVICES_HDI_HANA_CREDENTIALS_HOST=$(echo $credentials | jq -r .host)
-export VCAP_SERVICES_HDI_HANA_CREDENTIALS_PORT=$(echo $credentials | jq -r .port)
-export VCAP_SERVICES_HDI_HANA_CREDENTIALS_USER=$(echo $credentials | jq -r .user)
-export VCAP_SERVICES_HDI_HANA_CREDENTIALS_PASSWORD=$(echo $credentials | jq -r .password)
+echo "{\"hana\": $credentials }" > /tmp/default-services.json
 
 export KEYCLOAK_URL=$KEYCLOAK_URL
 
