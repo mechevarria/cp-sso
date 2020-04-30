@@ -6,18 +6,23 @@
 </div>
 <ul class="c-sidebar-nav" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
   <li class="c-sidebar-nav-item">
+    <a class="c-sidebar-nav-link" routerLink="home/springboot" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
+      <i class="c-sidebar-nav-icon cib-spring"></i> Spring Boot
+    </a>
+  </li>
+  <li class="c-sidebar-nav-item">
     <a class="c-sidebar-nav-link" routerLink="home/charts" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
       <i class="c-sidebar-nav-icon cil-chart-pie"></i> Charts
     </a>
   </li>
   <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" routerLink="home/table" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
-      <i class="c-sidebar-nav-icon cil-list"></i> Table
+    <a class="c-sidebar-nav-link" routerLink="home/analysis" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
+      <i class="c-sidebar-nav-icon cil-puzzle"></i> Analysis
     </a>
   </li>
   <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" routerLink="home/springboot" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
-      <i class="c-sidebar-nav-icon cib-spring"></i> Spring Boot
+    <a class="c-sidebar-nav-link" routerLink="home/table" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
+      <i class="c-sidebar-nav-icon cil-list"></i> Table
     </a>
   </li>
   <li class="c-sidebar-nav-item">

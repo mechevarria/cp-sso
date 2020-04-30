@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER, DoBootstrap, ApplicationRef } from '@angular/core';
+import { NgModule, DoBootstrap, ApplicationRef } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -9,6 +9,7 @@ import { AppRoutes } from './app.routes';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { TableComponent } from './table/table.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -26,6 +27,8 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { KeycloakAngularModule, KeycloakService, KeycloakOptions } from 'keycloak-angular';
 import { SpringbootComponent } from './springboot/springboot.component';
+import { AnalysisComponent } from './analysis/analysis.component';
+import { TagCloudModule } from 'angular-tag-cloud-module';
 
 const keycloakService = new KeycloakService();
 
@@ -39,7 +42,8 @@ const keycloakService = new KeycloakService();
     ChartsComponent,
     SidebarComponent,
     AppMapComponent,
-    SpringbootComponent
+    SpringbootComponent,
+    AnalysisComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,7 @@ const keycloakService = new KeycloakService();
     BsDropdownModule.forRoot(),
     PaginationModule.forRoot(),
     CollapseModule.forRoot(),
+    TypeaheadModule.forRoot(),
     CommonModule,
     BrowserAnimationsModule,
     ChartsModule,
@@ -64,7 +69,8 @@ const keycloakService = new KeycloakService();
       dataEncapsulation: false,
       passThruUnknownUrl: true
     }),
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    TagCloudModule
   ],
   providers: [
     {
