@@ -1,6 +1,7 @@
 package com.sapns2.springbootapi.analysis;
 
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ public class AnalysisController {
     AnalysisService analysisService;
 
     @GetMapping("/analysis")
-    public HashMap<String, Object> index(
+    public List<Map<String, Object>> index(
             @RequestParam(defaultValue = "") String type,
             @RequestParam(defaultValue = "30") Integer limit) {
         return analysisService.getData(type, limit);

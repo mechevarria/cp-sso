@@ -15,7 +15,7 @@ public class ChartService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public HashMap<String, Object> getData() {
+    public Map<String, Object> getData() {
         // convert to textblock in future jdk
         final String donutQuery = "SELECT EVENT_TYPE, COUNT(EVENT_TYPE) as COUNT FROM EVENT GROUP BY EVENT_TYPE";
         final String barQuery = "SELECT COUNTRY_NAME, COUNT(COUNTRY_NAME) as COUNT FROM EVENT GROUP BY COUNTRY_NAME";
@@ -34,17 +34,17 @@ public class ChartService {
 
         List<String> barLabels = new ArrayList<>();
         List<Object> barData = new ArrayList<>();
-        List<Long> data = new ArrayList<>();
-        HashMap<String, List<Long>> dataMap = new HashMap<>();
-        dataMap.put("data", data);
+        List<Long> dataList = new ArrayList<>();
+        Map<String, List<Long>> dataMap = new HashMap<>();
+        dataMap.put("data", dataList);
         barData.add(dataMap);
 
         for (Map<String, Object> row : rows) {
             barLabels.add((String) row.get("COUNTRY_NAME"));
-            data.add((long) row.get("COUNT"));
+            dataList.add((long) row.get("COUNT"));
         }
 
-        HashMap<String, Object> results = new HashMap<>();
+        Map<String, Object> results = new HashMap<>();
 
         results.put("donutLabels", donutLabels);
         results.put("donutData", donutData);
