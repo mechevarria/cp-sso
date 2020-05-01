@@ -17,7 +17,7 @@ public class StatusController {
 
         Map<String, String> model = new HashMap<>();
 
-        model.put("status", "Greetings, " + name + ", from Spring Boot!");
+        model.put("message", "Greetings, " + name + ", from Spring Boot!");
         model.put("time", LocalDateTime.now().toString());
 
         return model;
