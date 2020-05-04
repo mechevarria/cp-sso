@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/', function (req, res) {
+router.post('/', (req, res) => {
   const mapQuery = `
 	SELECT EVENT_ID as "eventId",
 		EVENT_DATE as "eventDate",
