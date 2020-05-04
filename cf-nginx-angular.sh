@@ -16,7 +16,7 @@ else
   echo springboot_url=$springboot_url
 fi
 
-app=nginx-angular-springboot
+app=nginx-angular
 
 cf push $app \
     -m 64M \
