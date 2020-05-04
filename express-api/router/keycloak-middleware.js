@@ -29,7 +29,7 @@ module.exports = ((app) => {
 
     middleware = keycloak.protect();
   } else {
-    console.info('Keycloak is diabled');
+    console.info('Keycloak is disabled');
     middleware = (req, res, next) => {
       next();
     };
