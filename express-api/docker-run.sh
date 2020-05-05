@@ -14,6 +14,8 @@ fi
 
 echo "{\"hana\": $credentials }" > /tmp/default-services.json
 
+docker rm express-api
+
 docker run \
   --name=express-api \
   -p 3000:3000 \
