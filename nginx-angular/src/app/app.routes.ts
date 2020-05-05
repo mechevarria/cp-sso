@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { TableComponent } from './table/table.component';
+import { SearchComponent } from './search/search.component';
 import { ChartsComponent } from './charts/charts.component';
 import { AppMapComponent } from './app-map/app-map.component';
 import { StatusComponent } from './status/status.component';
 import { AnalysisComponent } from './analysis/analysis.component';
+import { EventComponent } from './event/event.component';
 
 export const AppRoutes: Routes = [
   {
@@ -19,13 +20,6 @@ export const AppRoutes: Routes = [
         component: ChartsComponent,
         data: {
           breadcrumb: 'Charts'
-        }
-      },
-      {
-        path: 'table',
-        component: TableComponent,
-        data: {
-          breadcrumb: 'Table'
         }
       },
       {
@@ -47,6 +41,20 @@ export const AppRoutes: Routes = [
         component: AnalysisComponent,
         data: {
           breadcrumb: 'Analysis'
+        }
+      },
+      {
+        path: 'search',
+        component: SearchComponent,
+        data: {
+          breadcrumb: 'Search'
+        }
+      },
+      {
+        path: 'event',
+        component: EventComponent,
+        data: {
+          breadcrumb: 'Event'
         }
       }
     ]

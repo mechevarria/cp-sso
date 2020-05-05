@@ -9,7 +9,7 @@ import { ChartsService } from './charts.service';
 })
 export class ChartsComponent implements OnInit {
   // colors pulled from https://coreui.io/demo/3.0.0/#colors.html
-  colors: Color[] = [{ backgroundColor: ['#321fdb', '#f9b115', '#e55353', '#3399ff', '#2eb85c', '#636f83', '#ced2d8', '#321fdb', '#f9b115', '#e55353', '#3399ff', '#2eb85c', '#636f83', '#ced2d8'] }];
+  colors: Color[] = [{ backgroundColor: ['#321fdb', '#f9b115', '#e55353', '#3399ff', '#2eb85c', '#636f83', '#321fdb', '#f9b115', '#e55353', '#3399ff', '#2eb85c', '#636f83'] }];
 
   donutLabels: string[] = [];
   donutData: number[] = [];

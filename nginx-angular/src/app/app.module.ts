@@ -7,10 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routes';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
-import { TableComponent } from './table/table.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,8 +20,6 @@ import { ChartsModule } from 'ng2-charts';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AppMapComponent } from './app-map/app-map.component';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryApiService } from './in-memory-api.service';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { DeviceDetectorModule } from 'ngx-device-detector';
@@ -29,13 +27,14 @@ import { KeycloakAngularModule, KeycloakService, KeycloakOptions } from 'keycloa
 import { StatusComponent } from './status/status.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { TagCloudModule } from 'angular-tag-cloud-module';
+import { EventComponent } from './event/event.component';
+import { SearchComponent } from './search/search.component';
 
 const keycloakService = new KeycloakService();
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent,
     HomeComponent,
     HeaderComponent,
     BreadcrumbComponent,
@@ -43,7 +42,9 @@ const keycloakService = new KeycloakService();
     SidebarComponent,
     AppMapComponent,
     StatusComponent,
-    AnalysisComponent
+    AnalysisComponent,
+    EventComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +52,7 @@ const keycloakService = new KeycloakService();
     HttpClientModule,
     RouterModule.forRoot(AppRoutes),
     BsDropdownModule.forRoot(),
+    ModalModule.forRoot(),
     PaginationModule.forRoot(),
     CollapseModule.forRoot(),
     TypeaheadModule.forRoot(),
@@ -64,10 +66,6 @@ const keycloakService = new KeycloakService();
     // _env defined in assets/js/env.js
     NgxMapboxGLModule.withConfig({
       accessToken: window['_env'].mapboxToken
-    }),
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryApiService, {
-      dataEncapsulation: false,
-      passThruUnknownUrl: true
     }),
     KeycloakAngularModule,
     TagCloudModule
