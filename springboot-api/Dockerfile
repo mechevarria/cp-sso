@@ -8,7 +8,7 @@ COPY src /tmp/src
 RUN mvn package -DskipTests
 
 # Run from openjdk
-FROM openjdk:11
+FROM openjdk:11.0.7
 
 WORKDIR /app
 
