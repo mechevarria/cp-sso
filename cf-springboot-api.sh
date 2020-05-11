@@ -19,6 +19,7 @@ app=springboot-api
 cf push $app \
     -m 256M \
     -k 1024M \
+    -u process \
     --docker-image quay.io/mechevarria/$app \
     --no-start
 
