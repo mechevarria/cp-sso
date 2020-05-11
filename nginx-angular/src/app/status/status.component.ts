@@ -10,7 +10,7 @@ import { MessageService } from '../message/message.service';
 export class StatusComponent implements OnInit {
   response: any = {};
   name: string = '';
-  api: string = 'springboot-api';
+  api: string = 'springboot-api/status';
   isBusy: boolean = false;
 
   constructor(private statusService: StatusService, private messageService: MessageService) { }
