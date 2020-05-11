@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-hasJq=$(which jq)
-
-if [[ -z "$hasJq" ]]; then
-  echo "please install jq: 'sudo apt-get install -y jq'"
-  exit 1
-fi
-
 credentials=$(cf service-key hdi_hana hdi-hana-key | sed -n 3,14p)
 if [[ -z "$credentials" ]]; then
   echo "service-key 'hdi-hana-key' not found"
@@ -18,13 +11,13 @@ docker network create app-net
 
 docker rm springboot-api
 
+export VCAP_SERVICES="{\"hana\": [{ \"name\": \"hdi_hana\", \"credentials\": $credentials }]}"
+
 docker run \
     --name=springboot-api \
     --network app-net \
     -p 8080:8080 \
     --env KEYCLOAK=$KEYCLOAK \
     --env KEYCLOAK_URL=$KEYCLOAK_URL \
-    --env VCAP_SERVICES_HDI_HANA_CREDENTIALS_URL=$(echo $credentials | jq -r .url) \
-    --env VCAP_SERVICES_HDI_HANA_CREDENTIALS_USER=$(echo $credentials | jq -r .user) \
-    --env VCAP_SERVICES_HDI_HANA_CREDENTIALS_PASSWORD=$(echo $credentials | jq -r .password) \
+    --env VCAP_SERVICES="$VCAP_SERVICES" \
     quay.io/mechevarria/springboot-api

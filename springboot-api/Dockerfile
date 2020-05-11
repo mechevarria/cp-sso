@@ -16,4 +16,4 @@ COPY --from=builder /tmp/target/springboot-api.jar /app/
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "springboot-api.jar"]
+CMD ["java", "-Xms128m", "-jar", "springboot-api.jar"]
