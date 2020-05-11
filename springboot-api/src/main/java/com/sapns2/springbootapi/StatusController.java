@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 public class StatusController {
 
-    @GetMapping("/")
+    @GetMapping("/status")
     public Map<String, String> index(@RequestParam(defaultValue = "Guest") String name) {
 
         Map<String, String> model = new HashMap<>();
