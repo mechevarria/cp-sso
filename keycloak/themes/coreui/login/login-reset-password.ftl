@@ -2,7 +2,7 @@
 <@layout.registrationLayout displayInfo=true; section>
     <#if section = "form">
         <h1>Reset Password</h1>
-        <form id="kc-reset-password-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
+        <form id="kc-reset-password-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post" autocomplete="off">
             <p class="text-muted">
                 <#if !realm.loginWithEmailAllowed>
                     ${msg("username")}

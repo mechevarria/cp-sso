@@ -6,7 +6,7 @@
     <#elseif section = "form">
         <h1>${msg("loginTitleHtml",(realm.displayNameHtml!''))?no_esc}</h1>
         <p class="text-muted">Please update your password</p>
-        <form id="kc-passwd-update-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
+        <form id="kc-passwd-update-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post" autocomplete="off">
             <input type="text" id="username" name="username" value="${username}" autocomplete="username" readonly="readonly" style="display:none;"/>
             <input type="password" id="password" name="password" autocomplete="current-password" style="display:none;"/>
 

@@ -7,7 +7,7 @@
         <#if realm.password>
             <h1>${msg("loginTitleHtml",(realm.displayNameHtml!''))?no_esc}</h1>
             <p class="text-muted">Sign In to your account</p>
-            <form id="kc-form-login" class="${properties.kcFormClass!}" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+            <form id="kc-form-login" class="${properties.kcFormClass!}" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post" autocomplete="off">
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="cil-user"></i> </span>
