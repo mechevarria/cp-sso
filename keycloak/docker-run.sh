@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 docker run \
-    -p 8080:8080 \
+    -p 8180:8080 \
     -p 8443:8443 \
     -e DB_VENDOR=postgres \
     -e DB_USER=postgres \
