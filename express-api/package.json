@@ -6,8 +6,9 @@
   "repository": "https://github.com/mechevarria/cp-sso.git",
   "license": "MIT",
   "scripts": {
+    "prestart": "npm run lint",
     "start": "node server.js",
-    "lint": "node_modules/.bin/eslint ."
+    "lint": "npx eslint ."
   },
   "dependencies": {
     "@sap/hdbext": "^6.2.2",
