@@ -14,16 +14,20 @@ if [[ $status = "FAILED" ]]; then
   exit 1
 fi
 
-app=express-api
+app=springboot-api
 
 cd $app
 
-cf push $app \
-    -b nodejs_buildpack \
-    --no-start \
-    -m 64M \
-    -k 2048M
+mvn package -DskipTests
 
+cf push $app \
+    -p target/$app.jar \
+    -b java_buildpack \
+    --no-start \
+    -m 1024M \
+    -k 1024M
+
+cf se $app JBP_CONFIG_OPEN_JDK_JRE '{ jre: { version: 11.+ } }'
 cf se $app KEYCLOAK_URL $keycloak_url
 cf se $app KEYCLOAK false
 
