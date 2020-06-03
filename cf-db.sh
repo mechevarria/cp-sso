@@ -6,8 +6,12 @@ if [[ -z "$multiapps" ]]; then
   exit 1
 fi
 
+echo "Creating temporary mtad.yaml from mta.yaml"
+cp mta.yaml mtad.yaml
+
 cf deploy ./ -f
 
 cf create-service-key hdi_hana hdi-hana-key
 
+rm mtad.yaml
 rm cp-sso.mtar
