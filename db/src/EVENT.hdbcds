@@ -1,23 +1,23 @@
 entity EVENT {
-    key EVENT_ID      : hana.VARCHAR(40);
-        EVENT_DATE    : LocalDate        not null;
-        EVENT_TYPE    : hana.VARCHAR(50) not null;
-        SUB_EVENT_TYPE: hana.VARCHAR(50);
-        ACTOR_1       : String(200)      not null;
-        ACTOR_2       : String(200);
-        ASSOC_ACTOR1  : String(200);
-        ASSOC_ACTOR2  : String(200);
-        COUNTRY_NAME  : String(100);
-        LATITUDE      : String(35);
-        LONGITUDE     : String(35);
-        GEO_LOCATION  : hana.ST_POINT;
-        LOCATION      : String(100);
-        NOTES         : LargeString;
-        REGION        : String(100);
-        SOURCE        : String(200);
-        FATALITIES    : Integer;
-        TIMESTAMP     : Timestamp;
-        YEAR          : Integer;
+    key EVENT_ID       : hana.VARCHAR(40);
+        EVENT_DATE     : LocalDate        not null;
+        EVENT_TYPE     : hana.VARCHAR(50) not null;
+        SUB_EVENT_TYPE : hana.VARCHAR(50);
+        ACTOR_1        : String(200)      not null;
+        ACTOR_2        : String(200);
+        ASSOC_ACTOR1   : String(200);
+        ASSOC_ACTOR2   : String(200);
+        COUNTRY_NAME   : String(100);
+        LATITUDE       : String(35);
+        LONGITUDE      : String(35);
+        GEO_LOCATION   : hana.ST_POINT;
+        LOCATION       : String(100);
+        NOTES          : LargeString;
+        REGION         : String(100);
+        SOURCE         : String(200);
+        FATALITIES     : Integer;
+        TIMESTAMP      : UTCTimestamp;
+        YEAR           : Integer;
 }
 technical configuration {
     // Search 'Full-Text Index Parameters' on help.sap.com
