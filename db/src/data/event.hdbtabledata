@@ -16,12 +16,22 @@
 			"EVENT_ID": "event_id_cnty",
 			"EVENT_DATE": "event_date",
 			"EVENT_TYPE": "event_type",
+			"SUB_EVENT_TYPE": "sub_event_type",
 			"ACTOR_1": "actor1",
 			"ACTOR_2": "actor2",
+			"ASSOC_ACTOR1": "assoc_actor_1",
+        	"ASSOC_ACTOR2": "assoc_actor_2",
 			"COUNTRY_NAME": "country",
+			"LATITUDE": "latitude",
+			"LONGITUDE": "longitude",
 			"GEO_LOCATION": "geolocation",
+			"LOCATION": "location",
 			"NOTES": "notes",
-			"FATALITIES": "fatalities"
+			"REGION": "region",
+			"SOURCE": "source",
+			"FATALITIES": "fatalities",
+			"TIMESTAMP": "timestamp",
+			"YEAR": "year"
 		}
 	}]
 }
