@@ -5,8 +5,8 @@ entity EVENT {
         SUB_EVENT_TYPE : hana.VARCHAR(50);
         ACTOR_1        : String(200)      not null;
         ACTOR_2        : String(200);
-        ASSOC_ACTOR1   : LargeString;
-        ASSOC_ACTOR2   : LargeString;
+        ASSOC_ACTOR_1  : LargeString;
+        ASSOC_ACTOR_2  : LargeString;
         COUNTRY_NAME   : String(100);
         LATITUDE       : String(35);
         LONGITUDE      : String(35);
