@@ -1,6 +1,7 @@
 *.mtar
 dist
 node_modules
+mtad.yaml
 
 # docker cp for development only. Do not commit
 keycloak/themes/base
