@@ -2,4 +2,5 @@ FROM nginx
 
 COPY nginx/ /tmp/
 
-CMD ["/tmp/nginx-run.sh"]
+ENTRYPOINT [ "/tmp/entrypoint.sh" ]
+CMD ["nginx", "-g", "daemon off;"]

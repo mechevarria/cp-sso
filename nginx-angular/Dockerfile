@@ -20,4 +20,5 @@ COPY nginx/ /tmp/
 
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
 
-CMD ["/tmp/nginx-run.sh"]
+ENTRYPOINT [ "/tmp/entrypoint.sh" ]
+CMD ["nginx", "-g", "daemon off;"]
