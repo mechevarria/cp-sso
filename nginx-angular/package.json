@@ -2,7 +2,7 @@
   "name": "nginx-angular",
   "description": "bootstrap/angular project based on angular-cli scaffolding",
   "author": "Mike Echevarria <mike.echevarria@gmail.com>",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
     "@angular/platform-browser": "~9.1.7",
     "@angular/platform-browser-dynamic": "~9.1.7",
     "@angular/router": "~9.1.7",
-    "@coreui/coreui": "^3.0.0",
+    "@coreui/coreui": "^3.2.0",
     "@coreui/icons": "^1.0.1",
     "@mapbox/mapbox-gl-draw": "^1.1.2",
     "angular-tag-cloud-module": "^4.2.0",
