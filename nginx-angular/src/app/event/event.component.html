@@ -20,7 +20,7 @@
             <td>{{ event.eventId }}</td>
             <td>{{ event.eventDate | date }}</td>
             <td>{{ event.eventType }}</td>
-            <td>{{ event.countryName }}</td>
+            <td>{{ event.country }}</td>
             <td>{{ event.fatalities }}</td>
           </tr>
         </tbody>
@@ -49,20 +49,30 @@
     </button>
   </div>
   <div class="modal-body">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><b>ID:</b> {{ detail.eventId }}</li>
-      <li class="list-group-item"><b>Event Type:</b> {{ detail.eventType }}</li>
-      <li class="list-group-item"><b>Event Date:</b> {{ detail.eventDate | date}}</li>
-      <li class="list-group-item"><b>Country:</b> {{ detail.countryName }}</li>
-      <li class="list-group-item"><b>Actor 1:</b> {{ detail.actor1 }}</li>
-      <li class="list-group-item"><b>Actor 2:</b> {{ detail.actor2 }}</li>
-      <li class="list-group-item"><b>Fatalities:</b> {{ detail.fatalities }}</li>
-      <li class="list-group-item"><b>Notes:</b> {{ detail.notes }}</li>
-    </ul>
     <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[11]" [center]="detail.geoLocation.coordinates">
       <mgl-marker [lngLat]="detail.geoLocation.coordinates">
         <div class="marker"></div>
       </mgl-marker>
     </mgl-map>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>ID:</b> {{ detail.eventId }}</li>
+      <li class="list-group-item"><b>Event Type:</b> {{ detail.eventType }}</li>
+      <li class="list-group-item"><b>Event SubType:</b> {{ detail.subEventType }}</li>
+      <li class="list-group-item"><b>Event Date:</b> {{ detail.eventDate | date}}</li>
+      <li class="list-group-item"><b>Year:</b> {{ detail.year }}</li>
+      <li class="list-group-item"><b>Timestamp:</b> {{ detail.timestamp }}</li>
+      <li class="list-group-item"><b>Country:</b> {{ detail.country }}</li>
+      <li class="list-group-item"><b>Actor 1:</b> {{ detail.actor1 }}</li>
+      <li class="list-group-item"><b>Actor 2:</b> {{ detail.actor2 }}</li>
+      <li class="list-group-item"><b>Associated Actor 1:</b> {{ detail.assocActor1 }}</li>
+      <li class="list-group-item"><b>Associated Actor 2:</b> {{ detail.assocActor2 }}</li>
+      <li class="list-group-item"><b>Fatalities:</b> {{ detail.fatalities }}</li>
+      <li class="list-group-item"><b>Notes:</b> {{ detail.notes }}</li>
+      <li class="list-group-item"><b>Location:</b> {{ detail.location }}</li>
+      <li class="list-group-item"><b>Region:</b> {{ detail.region }}</li>
+      <li class="list-group-item"><b>Source:</b> {{ detail.source }}</li>
+      <li class="list-group-item"><b>Longitude:</b> {{ detail.longitude }}</li>
+      <li class="list-group-item"><b>Latitude:</b> {{ detail.latitude }}</li>
+    </ul>
   </div>
 </ng-template>
