@@ -15,12 +15,11 @@ app.use(morgan('combined'));
 app.use(bodyParser.json({ extended: true }));
 app.use(compression());
 
-
 // add HANA client to all incoming requests. json file is only read when not running on XS Advanced Server
 const services = xsenv.getServices({ hana: { tag: 'hana' } }, '/tmp/default-services.json');
 app.use('/', hdbext.middleware(services.hana));
 
-require('./router')(app);
+require('./routes')(app);
 
 http.createServer(app)
   .listen(app.get('port'), () => {
