@@ -1,9 +1,6 @@
 'use strict';
 
-const express = require('express');
-const router = express.Router();
-
-router.post('/', (req, res) => {
+module.exports = (req, res) => {
   const mapQuery = `
 	SELECT EVENT_ID as "eventId",
 		EVENT_DATE as "eventDate",
@@ -50,6 +47,4 @@ router.post('/', (req, res) => {
     console.error(err);
     res.status(500).json({ error: `[map]: ${err.message}` });
   }
-});
-
-module.exports = router;
+};

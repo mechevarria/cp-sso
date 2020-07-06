@@ -1,6 +1,5 @@
 'use strict';
 
-const http = require('http');
 const compression = require('compression');
 const express = require('express');
 const morgan = require('morgan');
@@ -10,7 +9,6 @@ const hdbext = require('@sap/hdbext');
 
 let app = express();
 
-app.set('port', process.env.PORT || 3000);
 app.use(morgan('combined'));
 app.use(bodyParser.json({ extended: true }));
 app.use(compression());
@@ -19,9 +17,25 @@ app.use(compression());
 const services = xsenv.getServices({ hana: { tag: 'hana' } }, '/tmp/default-services.json');
 app.use('/', hdbext.middleware(services.hana));
 
-require('./routes')(app);
+// configure keycloak if enabled
+const keycloak = require('./middlewares/keycloak')(app);
+app.use(keycloak);
 
-http.createServer(app)
-  .listen(app.get('port'), () => {
-    console.info(`http server started on port ${app.get('port')}`);
-  });
+// configure route handlers
+const eventCtrl = require('./controllers/event');
+const mapCtrl = require('./controllers/map');
+const searchCtrl = require('./controllers/search');
+const statusCtrl = require('./controllers/status');
+
+const router = express.Router();
+router.route('/status').get(statusCtrl);
+router.route('/event').get(eventCtrl);
+router.route('/map').post(mapCtrl);
+router.route('/search').get(searchCtrl);
+
+app.use('/', router);
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.info(`http server started on port ${port}`);
+});

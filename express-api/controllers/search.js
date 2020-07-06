@@ -1,9 +1,6 @@
 'use strict';
 
-const express = require('express');
-const router = express.Router();
-
-router.get('/', (req, res) => {
+module.exports = (req, res) => {
   const searchQuery = `
 	SELECT EVENT_ID as "eventId",
        EVENT_DATE as "eventDate",
@@ -24,11 +21,11 @@ router.get('/', (req, res) => {
 
   try {
     const results = req.db.exec(searchQuery, [search, fuzzy, limit]);
-	
+
     results.forEach(result => {
       result.geoLocation = JSON.parse(result.geoLocation);
     });
-  
+
     res.json({
       'results': results,
       'count': results.length
@@ -37,6 +34,4 @@ router.get('/', (req, res) => {
     console.error(err);
     res.status(500).json({ error: `[search]: ${err.message}` });
   }
-});
-
-module.exports = router;
+};

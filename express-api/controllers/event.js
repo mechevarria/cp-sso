@@ -1,8 +1,6 @@
 'use strict';
-const express = require('express');
-const router = express.Router();
 
-router.get('/', (req, res) => {
+module.exports = (req, res) => {
   const eventQuery = `
 	SELECT 
 	  EVENT_ID AS "eventId",
@@ -55,6 +53,4 @@ router.get('/', (req, res) => {
     res.status(500).json({ error: `[event]: ${err.message}` });
   }
 
-});
-
-module.exports = router;
+};
