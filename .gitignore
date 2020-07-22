@@ -37,9 +37,6 @@ target/
 /.nb-gradle/
 build/
 
-### VS Code ###
-.vscode/
-
 /mta_archives/
 fioriHtmlRunner.html
 .*/fioriHtmlRunner.html
