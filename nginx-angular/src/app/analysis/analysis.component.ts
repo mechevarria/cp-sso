@@ -11,11 +11,11 @@ import { MessageService } from '../message/message.service';
 export class AnalysisComponent implements OnInit {
   @ViewChild(TagCloudComponent, { static: false }) tagCloudComponent: TagCloudComponent;
 
-  selected: string = '';
+  selected = '';
   types: string[] = [];
-  limit: number = 30;
+  limit = 30;
   data: CloudData[] = [];
-  isBusy: boolean = false;
+  isBusy = false;
 
   constructor(private analysisSerivce: AnalysisService, private messageService: MessageService) { }
 
@@ -28,7 +28,7 @@ export class AnalysisComponent implements OnInit {
         this.tagCloudComponent.reDraw();
         this.messageService.success(`Updated word cloud for '${this.selected}' from Spring Boot`);
       }
-    })
+    });
 
   }
 
