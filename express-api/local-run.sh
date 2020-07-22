@@ -10,4 +10,4 @@ echo "{\"hana\": $credentials }" > /tmp/default-services.json
 
 export KEYCLOAK_URL=$KEYCLOAK_URL
 
-npm run start
+npm run dev
