@@ -17,8 +17,9 @@ fi
 app=express-api
 
 cf push $app \
-    -m 64M \
+    -m 128M \
     -k 2048M \
+    -t 600 \
     --docker-image quay.io/mechevarria/$app \
     --no-start
 

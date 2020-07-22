@@ -21,9 +21,10 @@ cd $app
 cf push $app \
     -b nodejs_buildpack \
     --no-start \
-    -m 64M \
+    -m 128M \
     -k 2048M
 
+cf se $app NPM_CONFIG_PRODUCTION false
 cf se $app KEYCLOAK_URL $keycloak_url
 cf se $app KEYCLOAK false
 
