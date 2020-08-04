@@ -1,15 +1,17 @@
-_schema-version: "3.1"
+_schema-version: "3.3"
 ID: cp-sso
 version: 0.0.1
 modules:
 - name: hdi-hana-deployer
   type: com.sap.xs.hdi
   path: db
+  properties:
+    OPTIMIZE_MEMORY: true
   requires:
   - name: hdi_hana
   parameters:
     disk-quota: 1024M
-    memory: 256M
+    memory: 1024M
 resources:
 - name: hdi_hana
   type: com.sap.xs.hdi-container
